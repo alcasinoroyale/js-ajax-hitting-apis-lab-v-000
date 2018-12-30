@@ -26,7 +26,9 @@ function displayRepositories() {
 }
 
 function getCommits(el) {
-  const repo = el.dataset.repository
+  const owner = el.dataset.username;
+  const repo = el.dataset.repository;
+
 }
 
 
