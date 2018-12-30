@@ -49,3 +49,12 @@ function displayCommits() {
     .join('')}</ul>`;
     document.getElementById('commits').innerHTML = commitsList;
 }
+
+function getBranches(el) {
+  const req = new XMLHttpRequest();
+  const repo = el.dataset.repository;
+  const owner = el.dataset.username;
+  req.addEventListener('load', displayBranches);
+  req.open('GET', 'https://api.github.com/repos/' + owner + '/' + repo + '/branches');
+  req.send();
+}
