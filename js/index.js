@@ -36,8 +36,7 @@ function getCommits(el) {
 
 function displayCommits() {
   const commits = JSON.parse(this.responseText);
-  const commitsList = `<ul>${commits
-    .map(
+  const commitsList = `<ul>${commits.map(
       commit =>
       '<li><strong>' +
       commit.commit.author.name +
@@ -57,4 +56,15 @@ function getBranches(el) {
   req.addEventListener('load', displayBranches);
   req.open('GET', 'https://api.github.com/repos/' + owner + '/' + repo + '/branches');
   req.send();
+}
+
+function displayBranches() {
+  const branches = JSON.parse(this.responseText);
+  const branchesList = `<ul>${branches.map(
+      branch =>
+      '<li>' +
+      branch.name +
+      '</li>')
+
+    )}`
 }
