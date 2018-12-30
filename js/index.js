@@ -40,12 +40,11 @@ function displayCommits() {
       commit =>
       '<li><strong>' +
       commit.commit.author.name +
-      commmit.author.login +
-      '</strong> - ' +
+      '(' + commmit.author.login + ')
+      </strong>' -  +
       commit.commit.message +
-      '</li'
-    )
-    .join('')}</ul>`;
+      '</li>').join('')}
+      </ul>`;
     document.getElementById('commits').innerHTML = commitsList;
 }
 
